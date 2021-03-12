@@ -4,19 +4,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.cardview.widget.CardView;
 
 import com.bumptech.glide.Glide;
 import com.example.examen.Models.Revistas;
-import com.example.examen.R;
 import com.mindorks.placeholderview.PlaceHolderView;
 import com.mindorks.placeholderview.annotations.Click;
 import com.mindorks.placeholderview.annotations.Layout;
 import com.mindorks.placeholderview.annotations.NonReusable;
 import com.mindorks.placeholderview.annotations.Resolve;
 import com.mindorks.placeholderview.annotations.View;
+
 
 import java.util.List;
 @NonReusable
@@ -47,9 +46,10 @@ public class AdaptadorRevistas {
     @Click(R.id.crRevistas)
     public void onLongClick() {
         Intent intent = new Intent(context, actEdiciones.class);
+        Valores.REVISTA_SELECCIONADA = revistas.getJournal_id();
         context.getApplicationContext().startActivity(intent);
-        //activity.startActivity(new Intent(activity, NVirementEmmeteur.class));
     }
+
     @Resolve
     private void onResolve(){
         txtnombre.setText(revistas.getName());
