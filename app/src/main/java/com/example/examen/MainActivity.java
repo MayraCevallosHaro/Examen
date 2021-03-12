@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements Asynchtask {
 
         phvRevistas = (PlaceHolderView) findViewById(R.id.phvRevistas);
 
-        rclRevistas = findViewById(R.id.rclRevistas);
+       //rclRevistas = findViewById(R.id.rclRevistas);
         WebService ws= new WebService("https://revistas.uteq.edu.ec/ws/journals.php", datos, this, this);
         ws.execute("");
 
@@ -68,9 +68,9 @@ public class MainActivity extends AppCompatActivity implements Asynchtask {
         // Creando el adaptador de las revistas
         adtRevistas adtRevistas = new adtRevistas(revistas);
         // Colocandolo en la vista
-        rclRevistas.setAdapter(adtRevistas);
-        rclRevistas.setLayoutManager(new LinearLayoutManager(getApplicationContext(), RecyclerView.VERTICAL, false));
-        rclRevistas.hasFixedSize();
+        //rclRevistas.setAdapter(adtRevistas);
+        //rclRevistas.setLayoutManager(new LinearLayoutManager(getApplicationContext(), RecyclerView.VERTICAL, false));
+        //rclRevistas.hasFixedSize();
 
 
     }

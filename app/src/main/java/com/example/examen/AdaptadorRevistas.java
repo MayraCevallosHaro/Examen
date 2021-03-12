@@ -1,13 +1,18 @@
 package com.example.examen;
 
 import android.content.Context;
+import android.content.Intent;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.cardview.widget.CardView;
 
 import com.bumptech.glide.Glide;
 import com.example.examen.Models.Revistas;
 import com.example.examen.R;
 import com.mindorks.placeholderview.PlaceHolderView;
+import com.mindorks.placeholderview.annotations.Click;
 import com.mindorks.placeholderview.annotations.Layout;
 import com.mindorks.placeholderview.annotations.NonReusable;
 import com.mindorks.placeholderview.annotations.Resolve;
@@ -26,7 +31,8 @@ public class AdaptadorRevistas {
     @View(R.id.txtDescripcionRevista)
     private TextView txtdesc;
 
-
+    @View(R.id.crRevistas)
+    private CardView crRevistas;
 
     private Revistas revistas;
     private Context context;
@@ -38,7 +44,12 @@ public class AdaptadorRevistas {
         this.placeHolderView = placeHolderView;
     }
 
-
+    @Click(R.id.crRevistas)
+    public void onLongClick() {
+        Intent intent = new Intent(context, actEdiciones.class);
+        context.getApplicationContext().startActivity(intent);
+        //activity.startActivity(new Intent(activity, NVirementEmmeteur.class));
+    }
     @Resolve
     private void onResolve(){
         txtnombre.setText(revistas.getName());

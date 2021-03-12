@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
+    <!--androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rclRevistas"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
+        />-->
 
     <com.mindorks.placeholderview.PlaceHolderView
         android:id="@+id/phvRevistas"
