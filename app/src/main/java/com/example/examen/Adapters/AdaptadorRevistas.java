@@ -1,4 +1,4 @@
-package com.example.examen;
+package com.example.examen.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +9,9 @@ import androidx.cardview.widget.CardView;
 
 import com.bumptech.glide.Glide;
 import com.example.examen.Models.Revistas;
+import com.example.examen.R;
+import com.example.examen.Valores;
+import com.example.examen.actEdiciones;
 import com.mindorks.placeholderview.PlaceHolderView;
 import com.mindorks.placeholderview.annotations.Click;
 import com.mindorks.placeholderview.annotations.Layout;

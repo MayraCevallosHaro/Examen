@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.example.examen.Adapters.AdaptadorRevistas;
 import com.example.examen.Adapters.adtRevistas;
 import com.example.examen.Models.Revistas;
 import com.example.examen.WebServices.Asynchtask;
