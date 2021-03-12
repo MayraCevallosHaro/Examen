@@ -39,6 +39,10 @@ dependencies {
     compile 'com.mindorks.android:placeholderview:1.0.3'
     annotationProcessor 'com.mindorks.android:placeholderview-compiler:1.0.3'
     compile 'com.android.support:recyclerview-v7:27.1.0' // example: 27.1.0
+    implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.github.bumptech.glide:glide:4.10.0'
     implementation 'commons-io:commons-io:2.5'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation 'com.zolad:zoominimageview:1.0.0'
 }

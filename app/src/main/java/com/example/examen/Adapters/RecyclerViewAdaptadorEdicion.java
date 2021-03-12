@@ -1,4 +1,4 @@
-package com.example.examen.RecyclerViewAdaptador;
+package com.example.examen.Adapters;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;

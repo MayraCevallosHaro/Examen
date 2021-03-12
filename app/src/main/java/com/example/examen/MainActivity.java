@@ -1,8 +1,10 @@
 package com.example.examen;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+
 import com.example.examen.WebServices.Asynchtask;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -13,12 +15,15 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity implements Asynchtask {
 
     List<Revistas> revistas = new ArrayList<Revistas>();
+    RecyclerView rclRevistas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Map<String, String> datos = new HashMap<String, String>();
+
+        rclRevistas = findViewById(R.id.rclRevistas);
         WebService ws= new WebService("https://revistas.uteq.edu.ec/ws/journals.php", datos, this, this);
         ws.execute("");
     }
@@ -39,6 +44,12 @@ public class MainActivity extends AppCompatActivity implements Asynchtask {
             );
             revistas.add(revista);
         }
-        String a = "";
+
+        // Creando el adaptador de las revistas
+        adtRevistas adtRevistas = new adtRevistas(revistas);
+        // Colocandolo en la vista
+        rclRevistas.setAdapter(adtRevistas);
+        rclRevistas.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext(), RecyclerView.VERTICAL, false));
+        rclRevistas.hasFixedSize();
     }
 }
