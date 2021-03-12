@@ -3,13 +3,23 @@ package com.example.examen.Models;
 public class Articulos {
     private String section, publication_id, title, date_published;
     private Galeys galeys;
+    private Authors authors;
 
-    public Articulos(String section, String publication_id, String title, String date_published, Galeys galeys) {
+    public Articulos(String section, String publication_id, String title, String date_published, Galeys galeys, Authors authors) {
         this.section = section;
         this.publication_id = publication_id;
         this.title = title;
         this.date_published = date_published;
         this.galeys = galeys;
+        this.authors = authors;
+    }
+
+    public Authors getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(Authors authors) {
+        this.authors = authors;
     }
 
     public String getSection() {
@@ -83,6 +93,40 @@ public class Articulos {
 
         public void setUrlViewGalley(String urlViewGalley) {
             UrlViewGalley = urlViewGalley;
+        }
+    }
+
+    public class Authors{
+        private String nombres, filiacion, email;
+
+        public Authors(String nombres, String filiacion, String email) {
+            this.nombres = nombres;
+            this.filiacion = filiacion;
+            this.email = email;
+        }
+
+        public String getNombres() {
+            return nombres;
+        }
+
+        public void setNombres(String nombres) {
+            this.nombres = nombres;
+        }
+
+        public String getFiliacion() {
+            return filiacion;
+        }
+
+        public void setFiliacion(String filiacion) {
+            this.filiacion = filiacion;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public void setEmail(String email) {
+            this.email = email;
         }
     }
 
