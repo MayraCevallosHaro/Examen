@@ -1,5 +1,19 @@
 package com.example.examen.Adapters;
 
+import com.example.examen.R;
+import com.example.examen.Models.Revistas;
+import android.annotation.SuppressLint;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+import com.bumptech.glide.Glide;
+import java.util.List;
+
 public class adtRevistas extends RecyclerView.Adapter<adtRevistas.ViewHolder> implements View.OnClickListener{
     private List<Revistas> datos;
     // Constructor de la clase
@@ -10,31 +24,19 @@ public class adtRevistas extends RecyclerView.Adapter<adtRevistas.ViewHolder> im
     @NonNull
     @Override
     public adtRevistas.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lyt_shimmeraglome,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lyt_tarjetarevista,parent,false);
         view.setOnClickListener(this);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull adtRevistas.ViewHolder holder, int position) {
-        if(showShimmer)
-        {
-            holder.shimmerFrameLayout.startShimmer();
-        }
-        else
-        {
-            holder.shimmerFrameLayout.stopShimmer();
-            holder.shimmerFrameLayout.setShimmer(null);
-            holder.txtFechaHoraAglome.setBackground(null);
-            holder.txtTipoAglomeracion.setBackground(null);
-            holder.imgAglomeracion.setBackground(null);
-            holder.asignar_datos(datos.get(position));
-        }
+        holder.asignar_datos(datos.get(position));
     }
 
     @Override
     public int getItemCount() {
-        try{ return showShimmer ? cantShimmer : datos.size(); } catch (Exception e) {return cantShimmer;}
+        return datos.size();
     }
     public void setOnClickListener(View.OnClickListener listener) {
         this.listener = listener;
@@ -47,25 +49,22 @@ public class adtRevistas extends RecyclerView.Adapter<adtRevistas.ViewHolder> im
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ShimmerFrameLayout shimmerFrameLayout;
-        TextView txtFechaHoraAglome, txtTipoAglomeracion;
-        ImageView imgAglomeracion;
-        //Button btnRestaurant;
+
+        TextView txtTituloRevista, txtDescripcionRevista;
+        ImageView imgRevista;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            shimmerFrameLayout = itemView.findViewById(R.id.shimmer);
-            txtFechaHoraAglome = (TextView) itemView.findViewById(R.id.txtFechaHoraAglomeN);
-            txtTipoAglomeracion = (TextView) itemView.findViewById(R.id.txtTipoAglomeracionN);
-            imgAglomeracion = (ImageView) itemView.findViewById(R.id.imgAglomeracionN);
+
+            txtTituloRevista = (TextView) itemView.findViewById(R.id.txtTituloRevista);
+            txtDescripcionRevista = (TextView) itemView.findViewById(R.id.txtDescripcionRevista);
+            imgRevista = (ImageView) itemView.findViewById(R.id.imgRevista);
         }
 
-        @SuppressLint("ResourceAsColor")
         public void asignar_datos(Revistas valor) {
-            txtFechaHoraAglome.setText(valor.getFecha() + " " + valor.getHora());
-            txtFechaHoraAglome.setTextColor(Negro);
-            txtTipoAglomeracion.setText(valor.getTitulo());
-            txtTipoAglomeracion.setTextColor(Negro);
-            Glide.with(itemView).load(valor.getImagen()).centerCrop().into(imgAglomeracion);
+            txtTituloRevista.setText(valor.getName());
+            txtDescripcionRevista.setText(valor.getDescription());
+            Glide.with(itemView).load(valor.getPortada()).centerCrop().into(imgRevista);
         }
+}
 }
